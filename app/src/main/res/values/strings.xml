@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">NewsApp</string>
+    <string name="non_author">Автор не известен</string>
+    <string name="date">Дата публикации</string>
+    <string name="author">Автор</string>
+    <string name="save">Сохранить</string>
+    <string name="news">Новости</string>
+    <string name="bookmarks">Закладка</string>
+    <string name="no_inet">Нет интернета</string>
 </resources>

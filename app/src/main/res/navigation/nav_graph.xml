@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/newsFragment">
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.pavel.newsapp.presentation.news.NewsFragment"
+        android:label="News List"
+        tools:layout="@layout/fragment_news">
+
+        <action
+            android:id="@+id/action_newsFragment_to_viewNewsFragment"
+            app:destination="@id/viewNewsFragment">
+
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewNewsFragment"
+        android:name="com.pavel.newsapp.presentation.viewNews.ViewNewsFragment"
+        android:label="Bookmarks"
+        tools:layout="@layout/fragment_for_viewing_the_news">
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="com.pavel.newsapp.presentation.bookmarks.BookmarksFragment"
+        android:label="Bookmarks"
+        tools:layout="@layout/fragment_bookmarks">
+        <action
+            android:id="@+id/action_bookmarksFragment_to_viewNewsFragment"
+            app:destination="@id/viewNewsFragment">
+
+        </action>
+    </fragment>
+</navigation>
