@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.pavel.newsapp.R
 import com.pavel.newsapp.databinding.FragmentBookmarksBinding
 import com.pavel.newsapp.model.News
-import com.pavel.newsapp.presentation.bookmarks.recyclerView.BookmarksAdapter
+import com.pavel.newsapp.presentation.recycler.Adapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -49,7 +49,7 @@ class BookmarksFragment : Fragment() {
         binding?.saveRecyclerView?.run {
             if (adapter == null) {
                 layoutManager = LinearLayoutManager(requireContext())
-                adapter = BookmarksAdapter { news ->
+                adapter = Adapter { news ->
                     bundle.putParcelable("news", news)
                     findNavController().navigate(
                         R.id.action_bookmarksFragment_to_viewNewsFragment,
@@ -57,7 +57,7 @@ class BookmarksFragment : Fragment() {
                     )
                 }
             }
-            (adapter as? BookmarksAdapter)?.submitList(list)
+            (adapter as? Adapter)?.submitList(list)
         }
     }
 }

@@ -3,7 +3,6 @@ package com.pavel.newsapp.reciver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import com.pavel.newsapp.controller.NetworkController
 import com.pavel.newsapp.util.isNetworkConnected
 import dagger.hilt.android.AndroidEntryPoint

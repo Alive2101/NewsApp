@@ -1,18 +1,18 @@
-package com.pavel.newsapp.presentation.bookmarks.recyclerView
+package com.pavel.newsapp.presentation.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.pavel.newsapp.databinding.ItemSafeNewsBinding
+import com.pavel.newsapp.databinding.ItemNewsBinding
 import com.pavel.newsapp.model.News
 
-class BookmarksAdapter(
+class Adapter(
     private val onNewsClick: (
         news: News
     ) -> Unit
 ) :
-    ListAdapter<News, BookmarksHolder>(object : DiffUtil.ItemCallback<News>() {
+    ListAdapter<News, Holder>(object : DiffUtil.ItemCallback<News>() {
         override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
             return oldItem.title == newItem.title
         }
@@ -23,9 +23,9 @@ class BookmarksAdapter(
 
     }) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarksHolder {
-        return BookmarksHolder(
-            ItemSafeNewsBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+        return Holder(
+            ItemNewsBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -33,7 +33,7 @@ class BookmarksAdapter(
         )
     }
 
-    override fun onBindViewHolder(holder: BookmarksHolder, position: Int) {
+    override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(getItem(position), onNewsClick)
         holder.itemView.setOnClickListener {
             onNewsClick(

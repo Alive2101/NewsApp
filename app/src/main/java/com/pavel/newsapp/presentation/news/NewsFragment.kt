@@ -13,7 +13,7 @@ import com.pavel.newsapp.R
 import com.pavel.newsapp.controller.NetworkController
 import com.pavel.newsapp.databinding.FragmentNewsBinding
 import com.pavel.newsapp.model.News
-import com.pavel.newsapp.presentation.news.recyclerView.NewsAdapter
+import com.pavel.newsapp.presentation.recycler.Adapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -90,7 +90,7 @@ class NewsFragment : Fragment() {
         binding?.newsRecyclerView?.run {
             if (adapter == null) {
                 layoutManager = LinearLayoutManager(requireContext())
-                adapter = NewsAdapter { news ->
+                adapter = Adapter { news ->
                     bundle.putParcelable("news", news)
                     findNavController().navigate(
                         R.id.action_newsFragment_to_viewNewsFragment,
@@ -98,7 +98,7 @@ class NewsFragment : Fragment() {
                     )
                 }
             }
-            (adapter as? NewsAdapter)?.submitList(list)
+            (adapter as? Adapter)?.submitList(list)
         }
     }
 }

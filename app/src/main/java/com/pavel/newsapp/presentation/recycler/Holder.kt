@@ -1,11 +1,16 @@
-package com.pavel.newsapp.presentation.news.recyclerView
+package com.pavel.newsapp.presentation.recycler
 
+import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 import com.pavel.newsapp.databinding.ItemNewsBinding
+import com.pavel.newsapp.databinding.ItemSafeNewsBinding
 import com.pavel.newsapp.model.News
 
-class NewsHolder(private val binding: ItemNewsBinding) :
+private const val resource: String = "Источник"
+
+class Holder(private val binding: ItemNewsBinding) :
     RecyclerView.ViewHolder(binding.root) {
+    @SuppressLint("SetTextI18n")
     fun bind(
         news: News,
         onHeadClick: (
@@ -14,12 +19,11 @@ class NewsHolder(private val binding: ItemNewsBinding) :
     ) = binding.run {
         head.text = news.title
         description.text = news.content
-        source.text = "Источник: ${news.source}"
+        source.text = "$resource: ${news.source}"
         head.setOnClickListener {
             onHeadClick(
                 news
             )
         }
-
     }
 }
