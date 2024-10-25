@@ -3,7 +3,6 @@ package com.pavel.newsapp.presentation.recycler
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 import com.pavel.newsapp.databinding.ItemNewsBinding
-import com.pavel.newsapp.databinding.ItemSafeNewsBinding
 import com.pavel.newsapp.model.News
 
 private const val resource: String = "Источник"
